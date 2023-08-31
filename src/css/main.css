@@ -1,0 +1,200 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+
+
+@media screen and (max-width:1024px){
+    body{
+        font-size: 18px;
+        background-color: #DD4124;
+    }
+}
+
+body{
+    font-size: 16px;
+    background-color: #DD4124;
+}
+
+
+
+.header{
+    display:block;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3em;
+    padding: 1%;
+    background-color: white;
+}
+
+
+
+.map-container{
+    width:100%;
+    height: 100vh
+}
+
+
+.leaflet-container{
+    height: 100vh;
+}
+
+
+.map-container {
+    display: flex;
+}
+
+.title-chemmagpie {
+    display: flex;
+    position: absolute;
+    z-index: 400;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1%;
+    border-radius: 5px;
+    width: 100%;
+    align-items: center; /* Center the items vertically */
+  }
+  
+  .title-chemmagpie p {
+    margin-right: auto; /* Add a small margin between the image and the text */
+    margin-left: auto;
+    font-size: 2rem;
+  }
+  
+  .title-chemmagpie > div {
+    display: flex;
+    align-items: center; /* Center the items vertically */
+  }
+  
+  .title-chemmagpie div p {
+     /* Add a small margin between the legend text and the image */
+    font-size: 1.5rem;
+    position: relative;
+    
+  }
+  
+  .title-chemmagpie div img {
+    height: 35px;
+    cursor: pointer; /* Add a pointer cursor to indicate the image is clickable
+     */
+    margin-left: 5px;
+    border-radius: 10px;
+  }
+
+  .title-chemmagpie div img:hover{
+    background-color: #4c4a3c;
+  }
+
+  .title-chemmagpie div img:active{
+    background-color: #4c4a3c;
+  }
+
+/*Map and connect with him content */
+.map {
+    z-index: 1;
+    flex: 1;
+    position: relative;
+}
+.row{
+    font-size: 0.75rem;
+    font-weight: bold;
+    
+}
+
+.cell-pass {
+    color: #9bc55b
+}
+
+.cell-false{
+    color: #DD4124
+}
+
+.leaflet-popup-content-wrapper {
+    max-width: 150%; /* Задайте максимальну ширину Popup */
+    font-size: 1rem; /* Задайте бажаний розмір шрифту для Popup */
+  }
+  
+  /* Інші стилі для Popup, які можуть бути корисними */
+  .leaflet-popup-content {
+    padding: 5px; /* Задайте відступи для вмісту Popup */
+    line-height: 1.6; /* Задайте висоту рядка для поліпшення читабельності */
+  }
+
+  .popup-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 5px;
+    place-items: center;
+  }
+
+  .normalCPM{
+    background-color: #4fcc9c;
+    font-weight:bold;
+    width: 100px;
+    text-align: center;
+  }
+  .redundantCPM{
+    background-color: #ff1d58;
+    font-weight:bold;
+    width: 100px;
+    text-align: center;
+  }
+
+
+  .general-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    gap: 1px;
+    place-items: center;
+    width: 100px;
+  }
+  
+  .header-grid {
+    font-weight: bold;
+    text-align: center;
+    background-color: #51e2f5;
+    height: 55px;
+    width: 100px;
+  }
+
+/* Legend */
+
+.legend-map{
+  align-items: center;
+  position: absolute;
+  z-index: 400;
+  top: 10%;
+  right: 0;
+  width: 300px; /* Замініть це значення на бажану ширину блоку */
+  padding: 10px;
+  background-color: azure;
+  font: 24px/1.5 Arial, sans-serif;
+  border-radius: 10px;
+}
+
+
+
+.legend-map img{
+  width: 25px;
+}
+
+.legend-map p{
+  margin-top: 10px;
+}
+
+.close-legend{
+  display: block;
+  margin-left: auto;
+  max-width: 50px;
+}
+
+.close-legend:hover{
+  background-color: #4c4a3c;;
+
+}
+
+.close-legend:active{
+  background-color: #4c4a3c;;
+}
