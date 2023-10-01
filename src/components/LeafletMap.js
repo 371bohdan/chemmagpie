@@ -15,10 +15,9 @@ const MPC = {
   chloride: 250,
   phosphate: 3.5,
   sulphate: 250,
-  TW: 7,
+  TH: 7,
   COC: 5,
-  fluorides: 0.7
-
+  fluoride: 0.7
 }
 
 class LeafletMap extends React.Component {
@@ -35,7 +34,7 @@ class LeafletMap extends React.Component {
       dataChloride: '',
       dataPhosphate: '',
       dataSulphate: '',
-      dataTW: '',
+      dataTH: '',
       dataCOC: '',
       dataFluoride: ''
     }
@@ -65,7 +64,7 @@ componentDidMount(){
 
 fetchSamplingPlaces = async () => {
   try{
-    const response = await axios.get('/api/places');
+    const response = await axios.get('/api/sampling_places');
     const sampling_places = response.data;
     this.setState({ sampling_places: sampling_places }, () => {
       console.log(this.state.sampling_places); // Викликатимеся після успішного оновлення стану
@@ -78,7 +77,7 @@ fetchSamplingPlaces = async () => {
 
 fetchChemicalIndexes = async () => {
   try{
-    const response = await axios.get('/api/chemical_indexes');
+    const response = await axios.get('/api/chemical-indexes');
     const chemical_indexes = response.data;
     this.setState({chemical_indexes: chemical_indexes}, () => {
       console.log(this.state.chemical_indexes);
@@ -89,16 +88,15 @@ fetchChemicalIndexes = async () => {
 }
 
 
-
 changeChemicalIndexes = (place) => {
-  this.setState({dataNitrate: '', dataNitrite: '', dataChloride: '', dataPhosphate: '', dataSulphate: '', dataCOC: '', dataTW: '', dataFluoride: ''});
+  this.setState({dataNitrate: '', dataNitrite: '', dataChloride: '', dataPhosphate: '', dataSulphate: '', dataCOC: '', dataTH: '', dataFluoride: ''});
   let date_max_nitrate = '';
   let date_max_nitrite = '';
   let date_max_chloride = '';
   let date_max_phosphate = '';
   let date_max_sulphate = '';
   let date_max_COC = '';
-  let date_max_TW = '';
+  let date_max_TH = '';
   let date_max_fluoride = '';
   this.state.chemical_indexes.map(e => {
     if(e.name_place === place.name_place){
@@ -126,11 +124,11 @@ changeChemicalIndexes = (place) => {
       this.setState({dataCOC: e});
       date_max_COC = this.parseDate(e.date_analysis);
     }
-    else if(e.chemical_index === 'TW' && (date_max_TW === '' || date_max_TW < this.parseDate(e.date_analysis))){
-      this.setState({dataTW: e});
-      date_max_TW = this.parseDate(e.date_analysis);
+    else if(e.chemical_index === 'TH' && (date_max_TH === '' || date_max_TH < this.parseDate(e.date_analysis))){
+      this.setState({dataTH: e});
+      date_max_TH = this.parseDate(e.date_analysis);
     }
-    else if(e.chemical_index === 'F-' && (date_max_fluoride === '' || date_max_TW < this.parseDate(e.date_analysis))){
+    else if(e.chemical_index === 'F-' && (date_max_fluoride === '' || date_max_TH < this.parseDate(e.date_analysis))){
       this.setState({dataFluoride: e});
       date_max_fluoride = this.parseDate(e.date_analysis);
     }
@@ -147,7 +145,7 @@ handleLegend = () => {
   render(){
   const sampling_places = this.state.sampling_places
   const customIcon = this.customIcon;
-  const {dataNitrate, dataNitrite, dataChloride, dataPosphate, dataSulphate, dataTW, dataCOC, dataFluoride} = this.state;
+  const {dataNitrate, dataNitrite, dataChloride, dataPhosphate, dataSulphate, dataTH, dataCOC, dataFluoride} = this.state;
   return(
     <div className="map-container">
       <div className='map'>
@@ -163,6 +161,7 @@ handleLegend = () => {
                 <img src={downChevronImage} alt="Clickable Icon"  onClick={this.handleLegend}/>
               </div>
             </div>
+            <a className="survey" style={{color:'black'}} href="https://docs.google.com/forms/d/e/1FAIpQLScA4AhmDn4_Qn2PnYy5_1pK49zsDfEZG436kLqiougGcH71wg/viewform?usp=sf_link">take a survey </a>
         {sampling_places.map((place) => (
           <Marker
             key={place._id}
@@ -171,7 +170,7 @@ handleLegend = () => {
             eventHandlers={{click: () => this.changeChemicalIndexes(place)}}
           >
             <Popup>
-            <h3>{place.name_place}</h3>
+            <h3 style={{textAlign: 'center'}}>{place.name_place}</h3>
             <div className="general-grid">
               <div>Name water object</div>
               <div>{place.name_water_object}</div>
@@ -180,7 +179,7 @@ handleLegend = () => {
             </div>
             <div className="popup-grid">
               <div className="header-grid">Chemical Index</div>
-              <div className="header-grid">Result</div>
+              <div className="header-grid">Result mg/dm³</div>
               <div className="header-grid">Date analysis</div>
             <div>Nitrates</div>
             {dataNitrate.result_chemical_index > MPC.nitrate ? 
@@ -207,9 +206,58 @@ handleLegend = () => {
              <div className='normalCPM'>{dataChloride.result_chemical_index}</div>
             : 
               <div>-</div>
-            } 
+            }
             <div>{dataChloride.date_analysis}</div>
-            
+
+            <div>Phosphates</div>
+            {dataPhosphate.result_chemical_index > MPC.phosphate ? 
+              <div className='redundantCPM'>{dataPhosphate.result_chemical_index}</div>
+            :dataPhosphate.result_chemical_index <= MPC.phosphate ? 
+             <div className='normalCPM'>{dataChloride.result_chemical_index}</div>
+            : 
+              <div>-</div>
+            }
+            <div>{dataPhosphate.date_analysis}</div>
+
+            <div>Sulphates</div>
+            {dataSulphate.result_chemical_index > MPC.sulphate ? 
+              <div className='redundantCPM'>{dataSulphate.result_chemical_index}</div>
+            :dataSulphate.result_chemical_index <= MPC.sulphate ? 
+             <div className='normalCPM'>{dataSulphate.result_chemical_index}</div>
+            : 
+              <div>-</div>
+            }
+            <div>{dataSulphate.date_analysis}</div>
+
+            <div>Total hardness</div>
+            {dataTH.result_chemical_index > MPC.TH ? 
+              <div className='redundantCPM'>{dataTH.result_chemical_index}</div>
+            :dataTH.result_chemical_index <= MPC.TH ? 
+             <div className='normalCPM'>{dataTH.result_chemical_index}</div>
+            : 
+              <div>-</div>
+            }
+            <div>{dataTH.date_analysis}</div>
+
+            <div>Chemical consumption of oxygen</div>
+            {dataCOC.result_chemical_index > MPC.COC ? 
+              <div className='redundantCPM'>{dataCOC.result_chemical_index}</div>
+            :dataCOC.result_chemical_index <= MPC.COC ? 
+             <div className='normalCPM'>{dataCOC.result_chemical_index}</div>
+            : 
+              <div>-</div>
+            }
+            <div>{dataCOC.date_analysis}</div>
+
+            <div>Fluorides</div>
+            {dataFluoride.result_chemical_index > MPC.COC ? 
+              <div className='redundantCPM'>{dataFluoride.result_chemical_index}</div>
+            :dataFluoride.result_chemical_index <= MPC.fluoride ? 
+             <div className='normalCPM'>{dataFluoride.result_chemical_index}</div>
+            : 
+              <div>-</div>
+            }
+            <div>{dataFluoride.date_analysis}</div>
           </div></Popup>
           </Marker>
           ))}

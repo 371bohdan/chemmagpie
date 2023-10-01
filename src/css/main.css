@@ -91,6 +91,27 @@ body{
     background-color: #4c4a3c;
   }
 
+/*Survey magister diplome*/
+.survey{
+  position: absolute;
+  z-index: 400;
+  background-color: rgba(217, 219, 62, 0.8);
+  border-radius: 5px;
+  padding: 0.5%;
+  margin: 0.7% 0 0 1%;
+  text-align: center; /* Center the items vertically */
+  font-size: 1.5rem;
+  text-decoration: none;
+  border: outset 2px black ;
+}
+.survey a{
+  border: outset 2px black;
+}
+
+.survey:hover{
+  background-color: rgba(217, 219, 62, 0.7);
+}
+
 /*Map and connect with him content */
 .map {
     z-index: 1;
@@ -129,7 +150,11 @@ body{
     place-items: center;
   }
 
-  .normalCPM{
+  .popup-grid > div {
+    text-align: center; /* Вирівнювання тексту в центрі ячейки */
+  }
+
+  .normalCPM {
     background-color: #4fcc9c;
     font-weight:bold;
     width: 100px;
@@ -198,3 +223,4 @@ body{
 .close-legend:active{
   background-color: #4c4a3c;;
 }
+
