@@ -170,7 +170,8 @@ body{
 
   .general-grid{
     display: grid;
-    grid-template-columns: repeat(2, 100px);
+    grid-template-columns: repeat(2, 150px);
+    margin:5%;
     gap: 1px;
     place-items: center;
     width: 100px;
@@ -224,3 +225,35 @@ body{
   background-color: #4c4a3c;;
 }
 
+
+/*Mobile version*/
+
+
+@media screen and (max-width:400px){
+  body {
+    font-size: 12px;
+  }
+  .title-chemmagpie{
+    margin-top:2%;
+  }
+  .title-chemmagpie>p{
+    font-size: 1rem;
+    margin-right: 5%;
+  }
+  .survey{
+    font-size: 1rem;
+    margin-top: 3%;
+  }
+  .popup-grid{
+    font-size: 0.85rem;
+  }
+  .general-grid{
+    font-size: 0.85rem;
+  }
+  .map-container{
+    margin-top: -2%;
+  }
+  .popup-grid .header-grid{
+    padding-top: 18%;
+  }
+}

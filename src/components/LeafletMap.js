@@ -153,7 +153,7 @@ handleLegend = () => {
         <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" 
            />
-          <ZoomControl position="bottomleft" />
+          <ZoomControl position="bottomright" className="zoom-control"/>
           <div className="title-chemmagpie">
               <p>Chemmagpie</p>
               <div>
@@ -172,10 +172,10 @@ handleLegend = () => {
             <Popup>
             <h3 style={{textAlign: 'center'}}>{place.name_place}</h3>
             <div className="general-grid">
-              <div>Name water object</div>
-              <div>{place.name_water_object}</div>
-              <div>Type water object</div>
-              <div>{place.type_water_object}</div>
+              <div style={{fontFamily: 'Verdana, sans-serif'}}>Name water object</div>
+              <div style={{fontWeight: 'bold'}}>{place.name_water_object}</div>
+              <div style={{fontFamily: 'Verdana, sans-serif'}}>Type water object</div>
+              <div style={{fontWeight: 'bold'}}>{place.type_water_object}</div>
             </div>
             <div className="popup-grid">
               <div className="header-grid">Chemical Index</div>
