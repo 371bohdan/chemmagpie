@@ -157,7 +157,7 @@ handleLegend = () => {
           <div className="title-chemmagpie">
               <p>Chemmagpie</p>
               <div>
-                <p>legend</p>
+                <p className='legend'>legend</p>
                 <img src={downChevronImage} alt="Clickable Icon"  onClick={this.handleLegend}/>
               </div>
             </div>
@@ -169,8 +169,8 @@ handleLegend = () => {
             icon={customIcon}
             eventHandlers={{click: () => this.changeChemicalIndexes(place)}}
           >
-            <Popup>
-            <h3 style={{textAlign: 'center'}}>{place.name_place}</h3>
+            <Popup className='popup'>
+            <div style={{textAlign: 'center', fontWeight: 'bold'}}>{place.name_place}</div>
             <div className="general-grid">
               <div style={{fontFamily: 'Verdana, sans-serif'}}>Name water object</div>
               <div style={{fontWeight: 'bold'}}>{place.name_water_object}</div>

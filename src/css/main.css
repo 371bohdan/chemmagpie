@@ -229,7 +229,7 @@ body{
 /*Mobile version*/
 
 
-@media screen and (max-width:400px){
+@media screen and (max-width:500px){
   body {
     font-size: 12px;
   }
@@ -245,15 +245,15 @@ body{
     margin-top: 3%;
   }
   .popup-grid{
-    font-size: 0.85rem;
+    font-size: 0.75rem;
   }
   .general-grid{
-    font-size: 0.85rem;
-  }
-  .map-container{
-    margin-top: -2%;
+    font-size: 0.75rem;
   }
   .popup-grid .header-grid{
     padding-top: 18%;
+  }
+  .title-chemmagpie .legend{
+    font-size: 1rem;
   }
 }
