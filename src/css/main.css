@@ -229,7 +229,7 @@ body{
 /*Mobile version*/
 
 
-@media screen and (max-width:500px){
+@media screen and (max-width:836px){
   body {
     font-size: 12px;
   }
@@ -259,8 +259,20 @@ body{
 
 
   /* Збільшуємо висоту контейнера для тексту підпису, щоб він вміщався */
-  .map .leaflet-control-attribution.leaflet-control {
-    height: auto;
-    line-height: 1.4; /* Можна використовувати інше значення line-height за потреби */
-  }
+  .leaflet-control-attribution {
+    color: #333; /* Змініть кольори за своїм смаком */
+    background-color: rgba(185, 77, 77, 0.8);
+    padding-bottom: 70px;
+    border-radius: 5px;
+    z-index: 1000;
+
+    
+}
+
+/* Зміна стилю контейнера керування */
+.leaflet-control {
+    background-color: transparent; /* Прозорий фон */
+    border: none; /* Видалення рамки */
+    margin: 50px; /* Відступи за бажанням */
+}
 }
