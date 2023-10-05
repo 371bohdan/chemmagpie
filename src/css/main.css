@@ -256,4 +256,11 @@ body{
   .title-chemmagpie .legend{
     font-size: 1rem;
   }
+
+
+  /* Збільшуємо висоту контейнера для тексту підпису, щоб він вміщався */
+  .map .leaflet-control-attribution.leaflet-control {
+    height: auto;
+    line-height: 1.4; /* Можна використовувати інше значення line-height за потреби */
+  }
 }
