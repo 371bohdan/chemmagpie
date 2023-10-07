@@ -158,7 +158,7 @@ handleLegend = () => {
               <p>Chemmagpie</p>
               <div>
                 <p className='legend'>legend</p>
-                <img src={downChevronImage} alt="Clickable Icon"  onClick={this.handleLegend}/>
+                <img src={downChevronImage} alt="Clickable Icon" onClick={this.handleLegend}/>
               </div>
             </div>
             <a className="survey" style={{color:'black'}} href="https://docs.google.com/forms/d/e/1FAIpQLScA4AhmDn4_Qn2PnYy5_1pK49zsDfEZG436kLqiougGcH71wg/viewform?usp=sf_link">take a survey </a>
@@ -267,7 +267,7 @@ handleLegend = () => {
           <p><img className="close-legend" src={close} onClick={this.handleLegend}/></p>
           <p><img src={placeholder}/> - place of sampling</p>
           <p><div style={{display:'inline', backgroundColor: '#ff1d58'}}>100.5</div> - negative result chemical index</p>
-          <p><div style={{display:'inline', backgroundColor: '#9bc55b'}}>77.7</div> - postive result chemical index</p>
+          <p><div style={{display:'inline', backgroundColor: '#9bc55b'}}>77.7</div> - positive result chemical index</p>
         </div>)
         }
         </div>
