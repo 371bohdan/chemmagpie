@@ -179,21 +179,21 @@ handleLegend = () => {
             </div>
             <div className="popup-grid">
               <div className="header-grid">Chemical Index</div>
-              <div className="header-grid">Result mg/dm³</div>
+              <div className="header-grid">Result</div>
               <div className="header-grid">Date analysis</div>
             <div>Nitrates</div>
             {dataNitrate.result_chemical_index > MPC.nitrate ? 
-              <div className='redundantCPM'>{dataNitrate.result_chemical_index}</div>
+              <div className='redundantCPM'>{dataNitrate.result_chemical_index} mg/dm³</div>
             : dataNitrate.result_chemical_index <= MPC.nitrate ? 
-              <div className='normalCPM'>{dataNitrate.result_chemical_index}</div>
+              <div className='normalCPM'>{dataNitrate.result_chemical_index} mg/dm³</div>
             : <div>-</div>
             }
             <div>{dataNitrate.date_analysis}</div>
             <div>Nitrites</div>
                 {dataNitrite.result_chemical_index > MPC.nitrate ? (
-              <div className='redundantCPM'>{dataNitrite.result_chemical_index}</div>
+              <div className='redundantCPM'>{dataNitrite.result_chemical_index} mg/dm³</div>
             ):dataNitrite.result_chemical_index <= MPC.nitrate ? (
-              <div className='normalCPM'>{dataNitrite.result_chemical_index}</div>
+              <div className='normalCPM'>{dataNitrite.result_chemical_index} mg/dm³</div>
             ): (
               <div>-</div>
             )}
@@ -201,9 +201,9 @@ handleLegend = () => {
 
             <div>Chlorides</div>
             {dataChloride.result_chemical_index > MPC.chloride ? 
-              <div className='redundantCPM'>{dataChloride.result_chemical_index}</div>
+              <div className='redundantCPM'>{dataChloride.result_chemical_index} mg/dm³</div>
             :dataChloride.result_chemical_index <= MPC.chloride ? 
-             <div className='normalCPM'>{dataChloride.result_chemical_index}</div>
+             <div className='normalCPM'>{dataChloride.result_chemical_index} mg/dm³</div>
             : 
               <div>-</div>
             }
@@ -211,9 +211,9 @@ handleLegend = () => {
 
             <div>Phosphates</div>
             {dataPhosphate.result_chemical_index > MPC.phosphate ? 
-              <div className='redundantCPM'>{dataPhosphate.result_chemical_index}</div>
+              <div className='redundantCPM'>{dataPhosphate.result_chemical_index} mg/dm³</div>
             :dataPhosphate.result_chemical_index <= MPC.phosphate ? 
-             <div className='normalCPM'>{dataChloride.result_chemical_index}</div>
+             <div className='normalCPM'>{dataChloride.result_chemical_index} mg/dm³</div>
             : 
               <div>-</div>
             }
@@ -221,9 +221,9 @@ handleLegend = () => {
 
             <div>Sulphates</div>
             {dataSulphate.result_chemical_index > MPC.sulphate ? 
-              <div className='redundantCPM'>{dataSulphate.result_chemical_index}</div>
+              <div className='redundantCPM'>{dataSulphate.result_chemical_index} mg/dm³</div>
             :dataSulphate.result_chemical_index <= MPC.sulphate ? 
-             <div className='normalCPM'>{dataSulphate.result_chemical_index}</div>
+             <div className='normalCPM'>{dataSulphate.result_chemical_index} mg/dm³</div>
             : 
               <div>-</div>
             }
@@ -231,9 +231,9 @@ handleLegend = () => {
 
             <div>Total hardness</div>
             {dataTH.result_chemical_index > MPC.TH ? 
-              <div className='redundantCPM'>{dataTH.result_chemical_index}</div>
+              <div className='redundantCPM'>{dataTH.result_chemical_index} mmol/dm³</div>
             :dataTH.result_chemical_index <= MPC.TH ? 
-             <div className='normalCPM'>{dataTH.result_chemical_index}</div>
+             <div className='normalCPM'>{dataTH.result_chemical_index} mmol/dm³</div>
             : 
               <div>-</div>
             }
@@ -241,9 +241,9 @@ handleLegend = () => {
 
             <div>Chemical consumption of oxygen</div>
             {dataCOC.result_chemical_index > MPC.COC ? 
-              <div className='redundantCPM'>{dataCOC.result_chemical_index}</div>
+              <div className='redundantCPM'>{dataCOC.result_chemical_index} mg/dm³</div>
             :dataCOC.result_chemical_index <= MPC.COC ? 
-             <div className='normalCPM'>{dataCOC.result_chemical_index}</div>
+             <div className='normalCPM'>{dataCOC.result_chemical_index} mg/dm³</div>
             : 
               <div>-</div>
             }
@@ -251,9 +251,9 @@ handleLegend = () => {
 
             <div>Fluorides</div>
             {dataFluoride.result_chemical_index > MPC.COC ? 
-              <div className='redundantCPM'>{dataFluoride.result_chemical_index}</div>
+              <div className='redundantCPM'>{dataFluoride.result_chemical_index} mg/dm³</div>
             :dataFluoride.result_chemical_index <= MPC.fluoride ? 
-             <div className='normalCPM'>{dataFluoride.result_chemical_index}</div>
+             <div className='normalCPM'>{dataFluoride.result_chemical_index} mg/dm³</div>
             : 
               <div>-</div>
             }
